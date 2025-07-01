@@ -1,0 +1,78 @@
+openapi: 3.0.3
+info:
+  title: Application API
+  version: 1.0.0
+
+paths:
+  /applications:
+    get:
+      summary: Get all applications
+      tags:
+        - Applications
+      responses:
+        '200':
+          description: 成功時のレスポンス
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApplicationListResponse'
+        '500':
+          description: サーバーエラー
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApplicationErrorResponse'
+
+components:
+  schemas:
+    Application:
+      type: object
+      properties:
+        id:
+          type: string
+        applicationDate:
+          type: string
+          format: date
+        applicant:
+          type: string
+        consultationOverview:
+          type: string
+        consultationContent:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+
+    ApplicationListResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 200
+        meetings:
+          type: array
+          items:
+            $ref: '#/components/schemas/Application'
+        total:
+          type: integer
+        message:
+          type: string
+          nullable: true
+
+    ApplicationErrorResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 500
+        applications:
+          type: array
+          items: {}
+        total:
+          type: integer
+          example: 0
+        message:
+          type: string
