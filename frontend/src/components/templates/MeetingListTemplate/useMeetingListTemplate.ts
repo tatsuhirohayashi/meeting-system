@@ -21,7 +21,6 @@ export const useMeetingListTemplate = () => {
     // 表示用MeetingList
     const showMeetingList = useMemo(() => {
         const regexp = new RegExp("^" + searchKeyword, "i");
-        console.log(meetingList);
         return meetingList.filter((meeting) => {
             //検索キーワードに部分一致したMeetingだけを一覧表示する
             return meeting.consultationOverview.match(regexp);
@@ -32,7 +31,6 @@ export const useMeetingListTemplate = () => {
         const response = await getMeetings();
         if (!response?.data) return;
         setMeetingList(response.data.meetings);
-        console.log(response);
     }, []);
 
     const handleDeleteMeeting = useCallback((id: string, consultationOverview: string) => {
