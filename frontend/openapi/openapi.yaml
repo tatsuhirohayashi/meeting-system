@@ -10,18 +10,18 @@ paths:
       tags:
         - Applications
       responses:
-        "200":
+        '200':
           description: 成功時のレスポンス
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ApplicationListResponse"
-        "500":
+                $ref: '#/components/schemas/ApplicationListResponse'
+        '500':
           description: サーバーエラー
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ApplicationErrorResponse"
+                $ref: '#/components/schemas/ApplicationErrorResponse'
 
 components:
   schemas:
@@ -45,33 +45,6 @@ components:
         updatedAt:
           type: string
           format: date-time
-        meetingDetail:
-          type: array
-          items:
-            MeetingDetailDetail:
-            type: object
-            properties:
-              meetingid:
-                type: string
-                example: 1
-              meetingtitle:
-                type: string
-                example: 保険の相談
-              meetingConsultant:
-                type: string
-                example: 保険の相談担当者
-              Specialist:
-                type: array
-                items:
-                  SpecialistDetail:
-                  type: object
-                  properties:
-                    specialistid:
-                      type: string
-                      example: 1
-                    specialistname:
-                      type: string
-                      example: 専門太郎
 
     ApplicationListResponse:
       type: object
@@ -82,7 +55,7 @@ components:
         meetings:
           type: array
           items:
-            $ref: "#/components/schemas/Application"
+            $ref: '#/components/schemas/Application'
         total:
           type: integer
         message:
