@@ -11,6 +11,7 @@ export const NAVIGATION_LIST = {
     DETAIL: `${BASE_PATH}/meeting/detail/:id`,
     CREATE: `${BASE_PATH}/meeting/create`,
     EDIT: `${BASE_PATH}/meeting/edit/:id`,
+    UIPRACTICE: `${BASE_PATH}/uipractice`,
 };
 
 /**
