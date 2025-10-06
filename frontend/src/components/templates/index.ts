@@ -5,4 +5,3 @@ export * from "./MeetingListTemplate";
 
 export * from "./LoginTemplate";
 export * from "./SignUpTemplate";
-export * from "./UIPracticeTemplate";
